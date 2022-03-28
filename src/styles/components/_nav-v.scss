@@ -1,0 +1,33 @@
+.Nav-v {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+	width: 120px;
+    height: auto;
+    color: white;
+	background-color: black;
+}
+.nav-v_btns {
+    margin-top: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+    align-items: center;
+	.nav-v_btns_btn {
+        margin: 10px;
+		width: 60px;
+		height: 60px;
+		border-radius: 10px;
+		background-color: white;
+        &:hover img {
+            @include btn_over;
+        }
+	}
+}
+.copyright {
+    transform: rotate(-90deg);
+    transform-origin: 50% 0;
+    font-size: 10px;
+    white-space: nowrap;
+}
