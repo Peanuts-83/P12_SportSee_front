@@ -1,9 +1,8 @@
 import Header from "../components/dashboard/Header";
-import Poids from "../components/dashboard/Poids";
-import Objectifs from "../components/dashboard/Objectifs";
+import Weight from "../components/dashboard/Weight";
+import Duration from "../components/dashboard/Duration";
 import Radar from "../components/dashboard/Radar";
 import Score from "../components/dashboard/Score";
-// eslint-disable-next-line no-unused-vars
 import Counter from "../components/dashboard/Counter";
 import getData from "../app/getData";
 
@@ -16,23 +15,23 @@ function Dashboard({ userId }) {
 	useEffect(() => {
 		async function get() {
 			const response = await getData("USER_MAIN_DATA", userId);
-			setMainData(response);
+			setMainData(response.data);
 		}
 		get();
-	});
+	}, [userId]);
 
 	return (
 		<div className="Dashboard">
 			<Header firstname={mainData?.userInfos.firstName} />
 			<div className="dashboard_graphs">
 				<div className="graphs_left">
-					<Poids />
-					<Objectifs />
-					<Radar />
-					<Score />
+					<Weight userId={userId} />
+					<Duration userId={userId} />
+					<Radar userId={userId} />
+					<Score data={mainData?.todayScore} />
 				</div>
 				<div className="graphs_right">
-					{/* {values.map((val, i) => <Counter type={type} key={`counter-${i}`} />)} */}
+					{mainData && Object.keys(mainData.keyData).map((val, i) => <Counter data={[val, mainData.keyData[val]]} key={`counter-${i}`} />)}
 				</div>
 			</div>
 		</div>

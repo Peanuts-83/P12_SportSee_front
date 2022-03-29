@@ -2,21 +2,21 @@ import getData from "../../app/getData";
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 
-function Radar({ userId }) {
+function Weight({ userId }) {
 	const [data, setData] = useState();
 	useEffect(() => {
 		async function get() {
-			const response = await getData("USER_PERFORMANCE", userId);
+			const response = await getData("USER_ACTIVITY", userId);
 			setData(response.data);
 		}
 		get();
 	}, [userId]);
 
-	return <div className="Radar">RADAR: {JSON.stringify(data)}</div>;
+	return <div className="Weight">WEIGHT: {JSON.stringify(data)}</div>;
 }
 
-export default Radar;
+export default Weight;
 
-Radar.prototype = {
+Weight.prototype = {
 	userId: PropTypes.number.isRequired,
 };
