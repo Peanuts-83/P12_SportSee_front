@@ -1,4 +1,5 @@
 import "./styles/app.scss";
+import { useState } from "react";
 import Dashboard from "./pages/Dashboard";
 import NavH from "./components/NavH";
 import NavV from "./components/NavV";
@@ -12,12 +13,14 @@ import NavV from "./components/NavV";
  * @returns The global interface of SportSee Dashboard
  */
 function App() {
+	const [userId, setUserId] = useState(12)
+
 	return (
 		<div className="App">
-			<NavH />
+			<NavH currentUser={[userId, setUserId]} />
 			<div className="app-content">
 				<NavV />
-				<Dashboard />
+				<Dashboard userId={userId} />
 			</div>
 		</div>
 	);

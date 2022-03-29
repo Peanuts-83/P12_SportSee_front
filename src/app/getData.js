@@ -15,23 +15,21 @@ import axios from "axios"
  * @returns The data for the user.
  */
 async function getData(requestTarget, userId) {
-    const mockedEnv = process.env.MOCKED_DATA
+    const mockedEnv = process.env[`REACT_APP_MOCKED_DATA`]
     const mockedData = {
         USER_MAIN_DATA: USER_MAIN_DATA,
         USER_ACTIVITY: USER_ACTIVITY,
         USER_AVERAGE_SESSIONS: USER_AVERAGE_SESSIONS,
         USER_PERFORMANCE: USER_PERFORMANCE
     }
-    const apiURL = process.env.API_URL
-    const apiTarget = process.env.API_TARGET
-        .requestTarget
-        .replace(/\$userId\$/g, userId)
+    const apiURL = process.env[`REACT_APP_API_URL`]
+    const apiTarget = process.env[`REACT_APP_${requestTarget}`]
     let usersData, data
 
 
     if (mockedEnv) {
-        usersData = await new Promise(resolve => resolve(mockedData.requestTarget))
-        data = await usersData.filter(user => user.id === userId)
+        usersData = await new Promise((resolve) => resolve(mockedData[requestTarget]))
+        data = await usersData.filter(user => user.id === userId)[0]
     } else {
         try {
             usersData = await axios({
@@ -40,12 +38,12 @@ async function getData(requestTarget, userId) {
                 url: apiTarget,
                 responseType: "stream"
             })
-            data = await usersData.filter(user => user.id === userId)
+            data = await usersData.filter(user => user.id === userId)[0]
         } catch (error) {
             console.log('Error fetching data:', error)
         }
     }
-
+    console.log('DATA from getData:', data)
     return data
 }
 
