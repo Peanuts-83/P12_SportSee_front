@@ -4,8 +4,17 @@ $blue: #4ab8ff;
 $yellow: #fdcc0c;
 $pink: #fd5181;
 $dark_red: #e60000;
-$light_grey: #979797;
+$light_grey: #fbfbfb;
+$grey: #979797;
 $dark_grey: #282d30;
+
+.grey {
+	color: $grey;
+}
+
+.dark_grey {
+	color: $dark_grey;
+}
 
 // btns actions
 @mixin btn_over() {

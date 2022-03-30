@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function Counter({ data }) {
+function Counter({ data, i }) {
     const [type, value] = data
 	const types = {
 		calorieCount: "Calories",
@@ -11,7 +11,7 @@ function Counter({ data }) {
     const title = types[type]
 
 	return (
-    <div className="Counter">
+    <div className={`Counter Counter-${i}`}>
         {title} : {value}
     </div>
     );
@@ -19,6 +19,6 @@ function Counter({ data }) {
 
 export default Counter;
 
-Counter.prototype = {
+Counter.proptype = {
 	data: PropTypes.array.isRequired,
 };

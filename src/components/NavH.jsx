@@ -33,6 +33,6 @@ function NavH({ currentUser }) {
 
 export default NavH;
 
-NavH.prototype = {
+NavH.proptype = {
     currentUser: PropTypes.arrayOf([PropTypes.number, PropTypes.func])
 }

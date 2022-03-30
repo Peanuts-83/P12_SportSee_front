@@ -12,11 +12,11 @@ function Radar({ userId }) {
 		get();
 	}, [userId]);
 
-	return <div className="Radar">RADAR: {JSON.stringify(data)}</div>;
+	return <div className="Radar">RADAR: </div>;
 }
 
 export default Radar;
 
-Radar.prototype = {
+Radar.proptype = {
 	userId: PropTypes.number.isRequired,
 };

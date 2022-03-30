@@ -12,11 +12,11 @@ function Duration({ userId }) {
 		get();
 	}, [userId]);
 
-	return <div className="Duration">DURATION: {JSON.stringify(data)}</div>;
+	return <div className="Duration">DURATION: </div>;
 }
 
 export default Duration;
 
-Duration.prototype = {
+Duration.proptype = {
 	userId: PropTypes.number.isRequired,
 };

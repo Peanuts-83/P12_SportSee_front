@@ -25,14 +25,14 @@ async function getData(requestTarget, userId) {
     const apiURL = process.env[`REACT_APP_API_URL`]
     const apiTarget = process.env[`REACT_APP_${requestTarget}`].replace(/userId/, userId)
     let usersData, data
-    console.log('MOCKED_DATA', mockedEnv)
+    console.log(`Data is taken from ${mockedEnv === "true" ? "MOCKED_DATA" : "BackEnd database with Axios" }.`)
 
     if (mockedEnv === 'true') {
-        console.log('FROM MOCKED DATA')
+        //console.log('FROM MOCKED DATA')
         usersData = await new Promise((resolve) => resolve(mockedData[requestTarget]))
         data = {data: await usersData.filter(user => user.id ? user.id === userId : user.userId === userId)[0]}
     } else {
-        console.log('FROM AXIOS')
+        //console.log('FROM AXIOS')
         try {
             usersData = await axios({
                 method: 'get',
@@ -43,6 +43,7 @@ async function getData(requestTarget, userId) {
             data = await usersData.data
         } catch (error) {
             console.log('Error fetching data:', error)
+            alert('Une erreur est survenue : échec de récupération des données utilisateur.')
         }
     }
     // console.log('DATA from getData:', data)
@@ -52,7 +53,7 @@ async function getData(requestTarget, userId) {
 export default getData;
 
 
-getData.prototype = {
+getData.proptype = {
     requestTarget: PropTypes.oneOf(['USER_MAIN_DATA', 'USER_ACTIVITY', 'USER_AVERAGE_SESSIONS', 'USER_PERFORMANCE']).isRequired,
     userId: PropTypes.number.isRequired,
 }

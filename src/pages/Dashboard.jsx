@@ -24,15 +24,14 @@ function Dashboard({ userId }) {
 		<div className="Dashboard">
 			<Header firstname={mainData?.userInfos.firstName} />
 			<div className="dashboard_graphs">
-				<div className="graphs_left">
-					<Weight userId={userId} />
-					<Duration userId={userId} />
-					<Radar userId={userId} />
-					<Score data={mainData?.todayScore} />
-				</div>
-				<div className="graphs_right">
-					{mainData && Object.keys(mainData.keyData).map((val, i) => <Counter data={[val, mainData.keyData[val]]} key={`counter-${i}`} />)}
-				</div>
+				<Weight userId={userId} />
+				<Duration userId={userId} />
+				<Radar userId={userId} />
+				<Score data={mainData?.todayScore} />
+				{mainData &&
+					Object.keys(mainData.keyData).map((val, i) => (
+						<Counter data={[val, mainData.keyData[val]]} i={i} key={`counter-${i}`} />
+					))}
 			</div>
 		</div>
 	);
@@ -40,6 +39,6 @@ function Dashboard({ userId }) {
 
 export default Dashboard;
 
-Dashboard.prototype = {
+Dashboard.proptype = {
 	userId: PropTypes.number,
 };

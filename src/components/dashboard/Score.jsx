@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 
 function Score({ data }) {
-	return <div className="Score">SCORE: {data}</div>;
+	return <div className="Score">SCORE: </div>;
 }
 
 export default Score;
 
-Score.prototype = {
+Score.proptype = {
 	data: PropTypes.number.isRequired,
 };
