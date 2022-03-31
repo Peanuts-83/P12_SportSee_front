@@ -1,5 +1,5 @@
 import getData from "../../app/getData";
-import PropTypes, { objectOf } from "prop-types";
+import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import {
 	BarChart,
@@ -16,7 +16,7 @@ import {
  * This function is used to display the weight of the user
  * @returns A bar chart with two y-axes.
  */
-function Weight({ userId }) {
+function Weight({ userId, color }) {
 	const [data, setData] = useState();
 	const dates = data?.map((d) => d.day.split("-")[2]);
 	useEffect(() => {
@@ -47,7 +47,21 @@ function Weight({ userId }) {
 			calories: "Calories brûlées (kCal)",
 		};
 		return (
-			<span className="recharts-legend-item-text dark_grey">{types[text]}</span>
+			<span>
+				<span
+					style={{
+						position: "absolute",
+						left: "0",
+						fontSize: "18px",
+						color: color.dark_grey,
+					}}
+				>
+					Activité quotidienne
+				</span>
+				<span className="recharts-legend-item-text dark_grey">
+					{types[text]}
+				</span>
+			</span>
 		);
 	}
 
@@ -64,24 +78,21 @@ function Weight({ userId }) {
 	function CustomTooltip({ active, payload, label }) {
 		if (active && payload && payload.length) {
 			return (
-				<div className="custom-tooltip"
-					style={{background: color.red, padding: '10px 5px', color: 'white'}}
+				<div
+					className="custom-tooltip"
+					style={{ background: color.red, padding: "10px 5px", color: "white" }}
 				>
-					<p className="desc">{payload[0].payload.kilogram}Kg</p>
-					<p className="desc">{payload[1].payload.calories}kCal</p>
+					<p className="desc">{payload[0].payload.kilogram} Kg</p>
+					<p className="desc">{payload[1].payload.calories} kCal</p>
 				</div>
 			);
-
 		}
-		return <div>rien</div>
+		return <div>... waiting for</div>;
 	}
 
-	const color = {
-		red: "#f00",
-		light_grey: "#fbfbfb",
-		grey: "#979797",
-		dark_grey: "#282d30",
-	};
+	function Title() {
+		return <span className="Title_text">Activité quotidienne</span>;
+	}
 
 	return (
 		<div className="Weight">
@@ -105,8 +116,8 @@ function Weight({ userId }) {
 							tickFormatter={formatDate}
 							tickLine={false}
 							tickMargin={15}
+							// label={{ value: 'random text', position: 'outsideTopLeft' }}
 						/>
-
 						<YAxis
 							yAxisId="kilogram"
 							type="number"
@@ -122,17 +133,15 @@ function Weight({ userId }) {
 							domain={["dataMin - 50", "dataMax + 50"]}
 							hide
 						/>
-						<Tooltip
-							content={<CustomTooltip />}
-							active
-						/>
 						<Legend
 							verticalAlign="top"
 							align="right"
 							iconType="circle"
-							iconSize={7}
+							iconSize={8}
 							formatter={setLegend}
 						/>
+						<Tooltip content={<CustomTooltip />}
+							animationEasing="ease-out" active />
 						<Bar
 							yAxisId="kilogram"
 							dataKey="kilogram"
@@ -142,7 +151,7 @@ function Weight({ userId }) {
 						<Bar
 							yAxisId="calories"
 							dataKey="calories"
-							radius={[10, 10, 0, 0]}
+							radius={[20, 20, 0, 0]}
 							fill={color.red}
 						/>
 					</BarChart>

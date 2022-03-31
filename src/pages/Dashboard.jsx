@@ -20,17 +20,25 @@ function Dashboard({ userId }) {
 		get();
 	}, [userId]);
 
+	const color = {
+		red: "#f00",
+		dark_red: "#da0000",
+		light_grey: "#fbfbfb",
+		grey: "#979797",
+		dark_grey: "#282d30",
+	};
+
 	return (
 		<div className="Dashboard">
 			<Header firstname={mainData?.userInfos.firstName} />
 			<div className="dashboard_graphs">
-				<Weight userId={userId} />
-				<Duration userId={userId} />
-				<Radar userId={userId} />
-				<Score data={mainData?.todayScore} />
+				<Weight userId={userId} color={color} />
+				<Duration userId={userId} color={color} />
+				<Radar userId={userId} color={color} />
+				<Score data={mainData?.todayScore} color={color} />
 				{mainData &&
 					Object.keys(mainData.keyData).map((val, i) => (
-						<Counter data={[val, mainData.keyData[val]]} i={i} key={`counter-${i}`} />
+						<Counter data={[val, mainData.keyData[val]]} color={color} i={i} key={`counter-${i}`} />
 					))}
 			</div>
 		</div>
