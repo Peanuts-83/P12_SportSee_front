@@ -52,7 +52,7 @@ function Weight({ userId, color }) {
 					style={{
 						position: "absolute",
 						left: "0",
-						fontSize: "18px",
+						fontSize: "1.4vw",
 						color: color.dark_grey,
 					}}
 				>
@@ -90,9 +90,6 @@ function Weight({ userId, color }) {
 		return <div>... waiting for</div>;
 	}
 
-	function Title() {
-		return <span className="Title_text">Activité quotidienne</span>;
-	}
 
 	return (
 		<div className="Weight">

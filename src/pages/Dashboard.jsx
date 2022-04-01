@@ -1,7 +1,7 @@
 import Header from "../components/dashboard/Header";
 import Weight from "../components/dashboard/Weight";
 import Duration from "../components/dashboard/Duration";
-import Radar from "../components/dashboard/Radar";
+import RadarComp from "../components/dashboard/RadarComp";
 import Score from "../components/dashboard/Score";
 import Counter from "../components/dashboard/Counter";
 import getData from "../app/getData";
@@ -15,7 +15,7 @@ function Dashboard({ userId }) {
 	useEffect(() => {
 		async function get() {
 			const response = await getData("USER_MAIN_DATA", userId);
-			setMainData(response.data);
+			setMainData(response.data)
 		}
 		get();
 	}, [userId]);
@@ -34,7 +34,7 @@ function Dashboard({ userId }) {
 			<div className="dashboard_graphs">
 				<Weight userId={userId} color={color} />
 				<Duration userId={userId} color={color} />
-				<Radar userId={userId} color={color} />
+				<RadarComp userId={userId} color={color} />
 				<Score data={mainData?.todayScore} color={color} />
 				{mainData &&
 					Object.keys(mainData.keyData).map((val, i) => (
