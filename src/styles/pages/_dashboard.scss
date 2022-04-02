@@ -10,6 +10,7 @@ h1 {
 	margin-top: 0;
 	font-size: 48px;
 	font-weight: 500;
+
 	.name {
 		color: $red;
 	}
@@ -26,15 +27,16 @@ h1 {
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: repeat((4, 1fr));
 	gap: 20px;
-	& > div {
+
+	&>div {
 		border-radius: 5px;
-        font-weight: 500;
-        font-size: 1vw;
+		font-weight: 500;
+		font-size: 1vw;
 	}
 }
 
 .Weight {
-    position: relative;
+	position: relative;
 	grid-column: 1/4;
 	grid-row: 1/3;
 	background-color: $light_grey;
@@ -50,24 +52,64 @@ h1 {
 .Radar {
 	grid-column: 2/3;
 	grid-row: 3/5;
-    background-color: $dark_grey;
+	background-color: $dark_grey;
 }
 
 .Score {
 	grid-column: 3/4;
 	grid-row: 3/5;
 	background-color: $light_grey;
+
 	.recharts-sector {
 		stroke-linejoin: round;
 		stroke-width: 7px;
-	  }
-	  .recharts-surface > text {
+	}
+
+	.recharts-surface>text {
 		font-size: 1vw;
-	  }
+	}
 }
 
 .Counter {
 	grid-column: 4/4;
+	display: flex;
+	padding: 10%;
+
+	.counter_icon_cell {
+		display: flex;
+		width: 25%;
+		margin-right: 10px;
+
+		.counter_icon {
+			display: flex;
+			padding: 30%;
+		}
+
+	}
+	.counter_icon_cell:after {
+		content: "";
+		display: block;
+		padding-bottom: 100%;
+	}
+
+	.counter_text {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		h3 {
+			margin: 0;
+			padding: 0;
+			font-size: 1.2vw;
+			color: $dark_grey;
+		}
+		p {
+			margin: 0;
+			padding: 0;
+			font-size: .8vw;
+			color: $grey;
+		}
+	}
+
 	background-color: $light_grey;
 }
 
@@ -89,7 +131,8 @@ h1 {
 
 .recharts-legend-item {
 	margin-bottom: 20px;
-	& > .recharts-legend-item-text {
+
+	&>.recharts-legend-item-text {
 		color: black;
 	}
 }

@@ -75,7 +75,7 @@ function Weight({ userId, color }) {
 	 * The label prop is a string that tells the component what label to display.
 	 * @returns A div with two p tags.
 	 */
-	function CustomTooltip({ active, payload, label }) {
+	function CustomTooltip({ active, payload }) {
 		if (active && payload && payload.length) {
 			return (
 				<div

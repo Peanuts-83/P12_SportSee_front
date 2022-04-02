@@ -30,17 +30,18 @@ function RadarComp({ userId, color }) {
 		get();
 	}, [userId]);
 
+	const names = {
+		cardio: "Cardio",
+		energy: "Energie",
+		endurance: "Endurance",
+		strength: "Force",
+		speed: "Vitesse",
+		intensity: "Intensité",
+	};
+
 	function setTick(props) {
-		const { payload, x, y, cx, cy } = props;
+		const { payload, x, y } = props;
 		const value = payload.value;
-		const values = {
-			cardio: "Cardio",
-			energy: "Energie",
-			endurance: "Endurance",
-			strength: "Force",
-			speed: "Vitesse",
-			intensity: "Intensité",
-		};
 		// console.log("TICK", value, payload);
 		const side = payload.coordinate;
 		return (
@@ -57,9 +58,25 @@ function RadarComp({ userId, color }) {
 				margin={5}
 				fill="white"
 			>
-				{values[value]}
+				{names[value]}
 			</text>
 		);
+	}
+
+	function CustomTooltip({ active, payload }) {
+		console.log(payload)
+		if (active && payload && payload.length) {
+			return (
+				<div
+					className="custom-tooltip"
+					style={{ background: "white", padding: "10px 5px", color: color.red }}
+				>
+				<p className="desc">{names[payload[0].payload.key]}</p>
+					<p className="desc">{payload[0].payload.value}</p>
+				</div>
+			);
+		}
+		return <div>... waiting for</div>;
 	}
 
 	return (
@@ -88,7 +105,11 @@ function RadarComp({ userId, color }) {
 							animationEasing={"ease-out"}
 							stroke="none"
 						/>
-						<Tooltip />
+						<Tooltip
+							content={<CustomTooltip />}
+							animationEasing="ease-out"
+							active
+						/>
 					</RadarChart>
 				</ResponsiveContainer>
 			)}
