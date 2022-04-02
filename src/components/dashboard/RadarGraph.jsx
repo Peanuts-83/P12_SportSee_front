@@ -11,7 +11,7 @@ import {
 	ResponsiveContainer,
 } from "recharts";
 
-function RadarComp({ userId, color }) {
+function RadarGraph({ userId, color }) {
 	const [data, setData] = useState();
 	let kind, values, modelData;
 	kind = data?.kind;
@@ -24,7 +24,6 @@ function RadarComp({ userId, color }) {
 	useEffect(() => {
 		async function get() {
 			const response = await getData("USER_PERFORMANCE", userId);
-			// console.log("DATA", response.data);
 			setData(response.data);
 		}
 		get();
@@ -117,8 +116,8 @@ function RadarComp({ userId, color }) {
 	);
 }
 
-export default RadarComp;
+export default RadarGraph;
 
-RadarComp.proptype = {
+RadarGraph.proptype = {
 	userId: PropTypes.number.isRequired,
 };

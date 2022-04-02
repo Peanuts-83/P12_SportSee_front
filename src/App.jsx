@@ -13,7 +13,7 @@ import NavV from "./components/NavV";
  * @returns The global interface of SportSee Dashboard
  */
 function App() {
-	const [userId, setUserId] = useState(12)
+	const [userId, setUserId] = useState(12);
 
 	return (
 		<div className="App">

@@ -4,6 +4,7 @@
     justify-content: space-between;
     align-items: center;
     height: 90px;
+    width: 100vw;
     color: white;
     background-color: black;
     .logo {
@@ -16,8 +17,8 @@
         flex: 1;
 
         .nav-h_menu {
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 2vw;
+            font-weight: 500;
             &:hover {
                 @include btn_text_over;
             }

@@ -10,8 +10,6 @@ import {
 	Tooltip,
 	Legend,
 	ResponsiveContainer,
-	ComposedChart,
-	Bar,
 	Rectangle,
 } from "recharts";
 

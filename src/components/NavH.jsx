@@ -20,6 +20,7 @@ function NavH({ currentUser }) {
                 onClick={() => setUserId(ids.filter(id => id !== userId)[0])}
 				src={logo}
 				alt="SportSee logo"
+				title="Click to switch demo User"
 			/>
 			<nav className="nav-h">
 				<span className="nav-h_menu">Accueil</span>

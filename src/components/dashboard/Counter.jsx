@@ -6,7 +6,7 @@ import energy from "../../assets/energy.svg";
 
 function Counter({ data, i }) {
 	let [type, value] = data;
-	value = +value > 999 ? `${Math.floor(value / 1000)},${value - 1000}` : value
+	value = +value > 999 ? `${Math.floor(value / 1000)},${value - 1000}` : value;
 
 	const types = {
 		calorieCount: "Calories",
@@ -24,7 +24,7 @@ function Counter({ data, i }) {
 
 	const colors = {
 		calorieCount: "#ffe6e6",
-		proteinCount: "#e6f2ff",
+		proteinCount: "#DBECFF",
 		carbohydrateCount: "#fff5cc",
 		lipidCount: "#ffe6f9",
 	};
@@ -35,19 +35,24 @@ function Counter({ data, i }) {
 		carbohydrateCount: "g",
 		lipidCount: "g",
 	};
-	
+
 	const title = types[type];
 	const icon = icons[type];
 	const color = colors[type];
-	const unit = units[type]
+	const unit = units[type];
 
 	return (
 		<div className={`Counter Counter-${i}`}>
 			<div className="counter_icon_cell" style={{ backgroundColor: color }}>
-				<img className="counter_icon" src={icon} alt={`icone ${title}`} />
+				<div>
+					<img className="counter_icon" src={icon} alt={`icone ${title}`} />
+				</div>
 			</div>
 			<div className="counter_text">
-				<h3>{value}{unit}</h3>
+				<h3>
+					{value}
+					{unit}
+				</h3>
 				<p>{title}</p>
 			</div>
 		</div>
