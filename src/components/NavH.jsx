@@ -1,23 +1,22 @@
 import logo from "../assets/logo.png";
-
-import PropTypes from "prop-types"
-
-
+import PropTypes from "prop-types";
 
 /**
- * This function returns a div with a logo and a nav-h
- * @function onclick - Logo click switch between 2 mocked user.
+ * This function returns a div with a logo and horizontal navigation.
+ * @param {array} currentUser - Props containing userId state & setUserId setter.
+ * @function onclick - Logo click switch between 2 mocked users.
  * @returns A div with a logo and a nav-h.
  */
 function NavH({ currentUser }) {
-    const [userId, setUserId] = currentUser
-    const ids = [12, 18]
+	const [userId, setUserId] = currentUser;
+	// Available users userId
+	const ids = [12, 18];
 
-    return (
+	return (
 		<div className="Nav-h">
 			<img
 				className="logo"
-                onClick={() => setUserId(ids.filter(id => id !== userId)[0])}
+				onClick={() => setUserId(ids.filter((id) => id !== userId)[0])}
 				src={logo}
 				alt="SportSee logo"
 				title="Click to switch demo User"
@@ -34,6 +33,8 @@ function NavH({ currentUser }) {
 
 export default NavH;
 
-NavH.proptype = {
-    currentUser: PropTypes.arrayOf([PropTypes.number, PropTypes.func])
-}
+NavH.propTypes = {
+	currentUser: PropTypes.arrayOf(
+		PropTypes.oneOfType([PropTypes.number, PropTypes.func]),
+	),
+};

@@ -13,12 +13,18 @@ import {
 } from "recharts";
 
 /**
- * This function is used to display the weight of the user
+ * This function is used to display the weight of the user.
+ * @param {number} userId - Id number of a registered user.
+ * @param {string} color - Colors from dashboard.
  * @returns A bar chart with two y-axes.
  */
 function Weight({ userId, color }) {
 	const [data, setData] = useState();
+	// get day from date
 	const dates = data?.map((d) => d.day.split("-")[2]);
+
+
+	// data are fetched on each userId change.
 	useEffect(() => {
 		async function get() {
 			const response = await getData("USER_ACTIVITY", userId);
@@ -29,6 +35,7 @@ function Weight({ userId, color }) {
 
 	/**
 	 * Given a date in the format YYYY-MM-DD, return the day of the month
+	 * @param {string} date
 	 * @returns The day of the month.
 	 */
 	function formatDate(date) {
@@ -39,6 +46,7 @@ function Weight({ userId, color }) {
 
 	/**
 	 * This function takes in a string and returns a span element with the string as its text
+	 * @param {string} text - Payload text from <Legend />
 	 * @returns A span element with the text "Poids (kg)" or "Calories (kCal)"
 	 */
 	function setLegend(text) {
@@ -68,9 +76,9 @@ function Weight({ userId, color }) {
 	/**
 	 * The CustomTooltip function is a React component that takes in an active prop, payload prop, and label prop.
 	 *
-	 * The active prop is a boolean that tells the component whether or not the tooltip is active.
+	 * @param {boolean} active - The active prop is a boolean from <Tooltip /> that tells the component whether or not the tooltip is active.
 	 *
-	 * The payload prop is an array of objects that contain the data that the tooltip needs to display.
+	 * @param {array} payload - The payload prop is an array of objects from <Tooltip /> that contain the data that the tooltip needs to display.
 	 *
 	 * The label prop is a string that tells the component what label to display.
 	 * @returns A div with two p tags.
@@ -87,7 +95,7 @@ function Weight({ userId, color }) {
 				</div>
 			);
 		}
-		return <div>... waiting for</div>;
+		return <div>... waiting for data</div>;
 	}
 
 	return (
@@ -162,6 +170,7 @@ function Weight({ userId, color }) {
 
 export default Weight;
 
-Weight.proptype = {
+Weight.propTypes = {
 	userId: PropTypes.number.isRequired,
+	color: PropTypes.object.isRequired
 };

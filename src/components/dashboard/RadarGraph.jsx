@@ -11,16 +11,22 @@ import {
 	ResponsiveContainer,
 } from "recharts";
 
+/**
+ * This function is used to display a radar.
+ * @param {number} userId - Id number of a registered user.
+ * @param {string} color - Colors from dashboard.
+ * @returns A radar  graphic with multiple axes.
+ */
 function RadarGraph({ userId, color }) {
 	const [data, setData] = useState();
-	let kind, values, modelData;
-	kind = data?.kind;
-	values = data?.data;
-	modelData = values?.map((val, index) => {
+	const kind = data?.kind;
+	const values = data?.data;
+	let modelData = values?.map((val, index) => {
 		return { key: kind[index + 1], value: val.value };
 	});
 	modelData = modelData?.reverse();
 
+	// data are fetched on each userId change.
 	useEffect(() => {
 		async function get() {
 			const response = await getData("USER_PERFORMANCE", userId);
@@ -29,6 +35,7 @@ function RadarGraph({ userId, color }) {
 		get();
 	}, [userId]);
 
+	/* Creating a dictionary of the different categories of performance. */
 	const names = {
 		cardio: "Cardio",
 		energy: "Energie",
@@ -38,11 +45,16 @@ function RadarGraph({ userId, color }) {
 		intensity: "Intensité",
 	};
 
+	/**
+	 * Places the legends at the right place around the radar.
+	 * @param {object} props - Properties used by the PolarAngleAxis.
+	 * @returns A text element with the name of the value with the right y value & textAnchor value.
+	 */
 	function setTick(props) {
 		const { payload, x, y } = props;
 		const value = payload.value;
-		// console.log("TICK", value, payload);
 		const side = payload.coordinate;
+
 		return (
 			<text
 				x={x}
@@ -62,8 +74,15 @@ function RadarGraph({ userId, color }) {
 		);
 	}
 
+	/**
+	 * Content formatter for the Tooltip, works if the active prop is true and the
+	 * payload prop is not empty.
+	 * @param {boolean} active
+	 * @param {array} payload - Properties used by the Tooltip.
+	 * @returns A div with a class of custom-tooltip and a style of background: white, padding: 10px 5px,
+	 * color: red.
+	 */
 	function CustomTooltip({ active, payload }) {
-		console.log(payload)
 		if (active && payload && payload.length) {
 			return (
 				<div
@@ -118,6 +137,7 @@ function RadarGraph({ userId, color }) {
 
 export default RadarGraph;
 
-RadarGraph.proptype = {
+RadarGraph.propTypes = {
 	userId: PropTypes.number.isRequired,
+	color: PropTypes.object.isRequired
 };

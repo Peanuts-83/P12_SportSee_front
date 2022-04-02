@@ -1,11 +1,17 @@
 import PropTypes from "prop-types";
-import { PieChart, Pie, Tooltip, Legend, ResponsiveContainer } from "recharts";
+import { PieChart, Pie, Legend, ResponsiveContainer } from "recharts";
 
-function Score({ data, color }) {
-	console.log(data);
+/**
+ * This function is used to display the score of the user.
+ * @param {number} userScore - Score float number of the user.
+ * @param {string} color - Colors from dashboard.
+ * @returns A partial donut with the user's score.
+ */
+function Score({ userScore, color }) {
+	// Build modelData with the score of the user & (1 - userScore)
 	const modelData = [
-		{ name: "score", value: 1 - data, stroke: 'transparent' },
-		{ name: "score", value: data, stroke: 'red' },
+		{ name: "score", value: 1 - userScore, stroke: 'transparent' },
+		{ name: "score", value: userScore, stroke: 'red' },
 	];
 
 	return (
@@ -19,7 +25,7 @@ function Score({ data, color }) {
 						fill={color.dark_grey}
 						style={{ fontSize: "2.2vw" }}
 					>
-						{data * 100}%
+						{userScore * 100}%
 					</text>
 					<text
 						dy="60%"
@@ -77,6 +83,7 @@ function Score({ data, color }) {
 
 export default Score;
 
-Score.proptype = {
-	data: PropTypes.number.isRequired,
+Score.propTypes = {
+	userScore: PropTypes.number.isRequired,
+	color: PropTypes.object.isRequired
 };

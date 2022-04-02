@@ -13,8 +13,16 @@ import {
 	Rectangle,
 } from "recharts";
 
+/**
+ * This function is used to display the duration of dayly exercices.
+ * @param {number} userId - Id number of a registered user.
+ * @param {string} color - Colors from dashboard.
+ * @returns A curved line showing the evolution of user's activity through the week.
+ */
 function Duration({ userId, color }) {
 	const [data, setData] = useState();
+
+	// data are fetched on each userId change.
 	useEffect(() => {
 		async function get() {
 			const response = await getData("USER_AVERAGE_SESSIONS", userId);
@@ -23,18 +31,29 @@ function Duration({ userId, color }) {
 		get();
 	}, [userId]);
 
+
+	/**
+	 * Given a number, return the corresponding day of the week
+	 * @param {number} num
+	 * @returns The letter day of the week.
+	 */
 	function weekDays(num) {
 		const week = ["L", "M", "M", "J", "V", "S", "D"];
 		return week[+num - 1];
 	}
 
+	/**
+	 * This function is a React component that builds a custom Tooltip.
+	 * @param {array} payload - Array of objects feeding the Tooltip.
+	 * @returns A div with a class of custom-tooltip and a style of background: white and padding: 1px
+	 * 5px.
+	 */
 	function CustomTooltip({ payload }) {
 		if (payload && payload.length) {
-			// console.log(payload);
 			return (
 				<div
-					className="custom-tooltip"
-					style={{ background: "white", padding: "1px 5px" }}
+				className="custom-tooltip"
+				style={{ background: "white", padding: "1px 5px" }}
 				>
 					<p className="desc">{payload[0].payload.sessionLength} min</p>
 				</div>
@@ -43,6 +62,11 @@ function Duration({ userId, color }) {
 		return <div>... waiting for data</div>;
 	}
 
+	/**
+	 * It creates a rectangle that is the size of the cursor.
+	 * @param {object} props - The properties of the cursor.
+	 * @returns A custom cursor.
+	 */
 	function CustomCursor(props) {
 		if (props) {
 			const { points, width, height } = props;
@@ -147,6 +171,7 @@ function Duration({ userId, color }) {
 
 export default Duration;
 
-Duration.proptype = {
+Duration.propTypes = {
 	userId: PropTypes.number.isRequired,
+	color: PropTypes.object.isRequired
 };

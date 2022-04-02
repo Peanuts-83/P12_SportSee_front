@@ -1,4 +1,10 @@
+import PropTypes from "prop-types";
 
+/**
+ * The Header component is a React component that renders a header with a name and a paragraph
+ * @param {string} firstname
+ * @returns A div with a h1 and a p.
+ */
 function Header({ firstname }) {
 	return (
 		<div className="Header">
@@ -9,3 +15,7 @@ function Header({ firstname }) {
 }
 
 export default Header;
+
+Header.propTypes = {
+	firstname: PropTypes.string.isRequired
+}

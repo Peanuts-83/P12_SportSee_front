@@ -1,5 +1,5 @@
 import "./styles/app.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Dashboard from "./pages/Dashboard";
 import NavH from "./components/NavH";
 import NavV from "./components/NavV";
@@ -13,6 +13,7 @@ import NavV from "./components/NavV";
  * @returns The global interface of SportSee Dashboard
  */
 function App() {
+	// Default userId set to 12
 	const [userId, setUserId] = useState(12);
 
 	return (

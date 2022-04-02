@@ -4,6 +4,16 @@ import cheeseburger from "../../assets/cheeseburger.svg";
 import chicken from "../../assets/chicken.svg";
 import energy from "../../assets/energy.svg";
 
+/**
+ * It takes a data object and an index, and returns a React component
+ * @param {array} data - Array of name type & a numeric value.
+ * @returns A div with two children:
+ * 	- A div with a background color corresponding to the color of the type of counter
+ * 	- A div with two children:
+ * 		- An img with the icon corresponding to the type of counter
+ * 		- A h3 with the value of the counter
+ * 		- A p with the title of the counter
+ */
 function Counter({ data, i }) {
 	let [type, value] = data;
 	value = +value > 999 ? `${Math.floor(value / 1000)},${value - 1000}` : value;
@@ -61,6 +71,17 @@ function Counter({ data, i }) {
 
 export default Counter;
 
-Counter.proptype = {
-	data: PropTypes.array.isRequired,
+Counter.propTypes = {
+	data: PropTypes.arrayOf(
+		PropTypes.oneOfType([
+			PropTypes.oneOf([
+				"calorieCount",
+				"proteinCount",
+				"carbohydrateCount",
+				"lipidCount",
+			]),
+			PropTypes.number
+		])
+	).isRequired,
+	i: PropTypes.string.isRequired,
 };
