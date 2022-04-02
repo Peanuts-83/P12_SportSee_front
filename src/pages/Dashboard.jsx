@@ -35,7 +35,7 @@ function Dashboard({ userId }) {
 				<Weight userId={userId} color={color} />
 				<Duration userId={userId} color={color} />
 				<RadarComp userId={userId} color={color} />
-				<Score data={mainData?.todayScore} color={color} />
+				<Score data={mainData?.todayScore || mainData?.score} color={color} />
 				{mainData &&
 					Object.keys(mainData.keyData).map((val, i) => (
 						<Counter data={[val, mainData.keyData[val]]} color={color} i={i} key={`counter-${i}`} />

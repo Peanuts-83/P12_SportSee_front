@@ -109,12 +109,11 @@ function Duration({ userId, color }) {
 							iconSize={0}
 							content={() => (
 								<div
+									className="legend_text"
 									style={{
 										color: "white",
 										marginTop: "-10px",
 										marginLeft: "20px",
-										fontSize: "1.4vw",
-
 										opacity: ".5",
 										position: "absolute",
 										top: "0",

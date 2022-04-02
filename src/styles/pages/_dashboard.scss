@@ -15,6 +15,11 @@ h1 {
 	}
 }
 
+.legend_text {
+	font-size: 1.2vw;
+	font-weight: 400;
+}
+
 .dashboard_graphs {
 	display: grid;
 	height: 100%;
@@ -52,6 +57,13 @@ h1 {
 	grid-column: 3/4;
 	grid-row: 3/5;
 	background-color: $light_grey;
+	.recharts-sector {
+		stroke-linejoin: round;
+		stroke-width: 7px;
+	  }
+	  .recharts-surface > text {
+		font-size: 1vw;
+	  }
 }
 
 .Counter {
