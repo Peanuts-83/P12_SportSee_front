@@ -70,8 +70,8 @@ function RadarGraph({ userId, color }) {
 					className="custom-tooltip"
 					style={{ background: "white", padding: "10px 5px", color: color.red }}
 				>
-				<p className="desc">{names[payload[0].payload.key]}</p>
-					<p className="desc">{payload[0].payload.value}</p>
+				<span className="desc">{names[payload[0].payload.key]} : {payload[0].payload.value}</span>
+					<span className="desc"></span>
 				</div>
 			);
 		}

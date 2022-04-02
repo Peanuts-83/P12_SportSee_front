@@ -80,7 +80,7 @@ function Weight({ userId, color }) {
 			return (
 				<div
 					className="custom-tooltip"
-					style={{ background: color.red, padding: "10px 5px", color: "white" }}
+					style={{ background: color.red, padding: "5px 5px", color: "white" }}
 				>
 					<p className="desc">{payload[0].payload.kilogram} Kg</p>
 					<p className="desc">{payload[1].payload.calories} kCal</p>
