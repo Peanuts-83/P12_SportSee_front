@@ -1,3 +1,59 @@
+# SportSee - User's Dashboard
+
+SportSee is a startup dedicated to sport coaching. The purpose of this project is to developp a brand new Dashboard's version of their application, where the user can check any important data concerning his sport practice.
+
+This project has been developped with React and <a href="https://recharts.org/en-US/">Recharts librairie</a>.
+
+Two repositories are needed to enable the project to run:
+
+&nbsp;
+## 1. BACK-END:
+An alternative to the use of this back-end API is available, see below at [USE WITHOUT BACKEND](###-use-without-backend) in front-end section.
+
+The back-end project requires nodeJS installed and any package manager such as npm or yarn. Please refer to the README available on the repository for further informations.
+
+* You have to clone the back-end locally with either :
+
+HTTPS :
+``` git clone https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git```
+
+SSH :
+``` git clone git@github.com:OpenClassrooms-Student-Center/P9-front-end-dashboard.git```
+
+* Then ```cd``` inside your local repository and install dependencies with : ```npm install```.
+* launch the back-end with : ``` npm start ``` or ```npm run dev```.
+
+### URL/PORT
+The default URL used by the micro-API is http://localhost:3000.
+
+&nbsp;
+## 2. FRONT-END:
+
+The present repository contains this part of the project. Any package manager such as npm or yarn is required.
+
+* You have to clone the project locally with either:
+
+HTTPS :
+``` git clone https://github.com/Peanuts-83/P12_SportSee_front.git ```
+
+SSH :
+```git clone git@github.com:Peanuts-83/P12_SportSee_front.git```
+
+* Then ```cd``` inside your local repository and install dependencies using : ```npm install```.
+* Launch the application with : ``` npm start ```.
+
+### URL/PORT
+
+The default URL used by the application is http://localhost:3005.
+You can change the port modifying the *.env* file at root, simply changing the port number referenced at **PORT** variable. *If the application is already launched, you shall stop it and re-launch it*.
+
+If you use a different API URL(back-end part) than the default one, you can set the right URL in the *.env* file at root changing the value of the **REACT_APP_API_URL**. *If the application is already launched, you shall stop it and re-launch it*.
+
+### USE WITHOUT BACKEND
+
+You can test the application without the back-end part, using a mocked file placed in the folder *"./src/assets/mockedData/data.js"* containing two default users. Access the *.env* file at root, and change the **REACT_APP_MOCKED_DATA** variable to *true*. *If the application is already launched, you shall stop it and re-launch it*.
+
+&nbsp;
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
