@@ -47,7 +47,7 @@ SSH :
 The default URL used by the application is http://localhost:3005.
 You can change the port modifying the *.env* file at root, simply changing the port number referenced at **PORT** variable. *If the application is already launched, you shall stop it and re-launch it*.
 
-If you use a different API URL(back-end part) than the default one, you can set the right URL in the *.env* file at root changing the value of the **REACT_APP_API_URL**. *If the application is already launched, you shall stop it and re-launch it*.
+If you use a different API URL(back-end part) than the default one, you can set the right URL in the *.env* file at root changing the value of the **REACT_APP_API_URL** variable. *If the application is already launched, you shall stop it and re-launch it*.
 
 ### USE WITHOUT BACKEND
 
