@@ -10,8 +10,8 @@ import axios from "axios"
 /**
  * It fetches data either from the mockedData or the API and returns it.
  * @modify .env - Set MOCKED_DATA to 'true' || 'false' in order to use mockedData or Axios requests
- * @param requestTarget - The name of the type of data you want to request from the API.
- * @param userId - The user ID of the user you want to get data for.
+ * @param {string} requestTarget - The name of the type of data you want to request from the API.
+ * @param {number} userId - The user ID of the user you want to get data for.
  * @access localStorage - Fetched data are stored in localStorage to provide better access for next time
  * @returns The data for the user.
  */

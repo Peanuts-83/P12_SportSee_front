@@ -20,14 +20,25 @@ The back-end project requires nodeJS installed and any package manager such as n
 
 * You have to clone the back-end locally with either/or :
 
-HTTPS :
-```git clone https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git```
+```bash
+# HTTPS
+git clone https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git
 
-SSH :
-```git clone git@github.com:OpenClassrooms-Student-Center/P9-front-end-dashboard.git```
+# SSH
+git clone git@github.com:OpenClassrooms-Student-Center/P9-front-end-dashboard.git
+```
 
-* Then ```cd``` inside your local repository and install dependencies with : ```npm install```.
-* launch the back-end with : ``` npm start ``` or ```npm run dev```.
+* Then access inside your local repository and install dependencies with :
+
+```bash
+npm install
+```
+
+* launch the back-end with either/or:
+```bash
+ npm start
+ npm run dev
+ ```
 
 ### URL/PORT
 
@@ -41,14 +52,24 @@ The present repository contains this part of the project. Any package manager su
 
 * You have to clone the project locally with either/or :
 
-HTTPS :
-``` git clone https://github.com/Peanuts-83/P12_SportSee_front.git ```
+```bash
+# HTTPS
+ git clone https://github.com/Peanuts-83/P12_SportSee_front.git
 
-SSH :
-```git clone git@github.com:Peanuts-83/P12_SportSee_front.git```
 
-* Then ```cd``` inside your local repository and install dependencies using : ```npm install```.
-* Launch the application with : ``` npm start ```.
+# SSH
+git clone git@github.com:Peanuts-83/P12_SportSee_front.git
+```
+
+* Then access inside your local repository and install dependencies using :
+```bash
+npm install
+```
+
+* Launch the application with :
+```bash
+ npm start
+ ```
 
 ### Use the application
 
@@ -57,13 +78,13 @@ You can change USER'S PROFILE by clicking on the logo. This is for demonstration
 ### URL/PORT
 
 The default URL used by the application is <http://localhost:3005>.
-You can change the port modifying the *.env* file at root, simply by changing the port number referenced at **PORT** variable. *If the application is already launched, you shall stop it and re-launch it*.
+You can change the port modifying the *.env* file at root, simply by changing the port number referenced at ```PORT``` variable. *If the application is already launched, you shall stop it and re-launch it*.
 
-If you use a different API URL(back-end part) than the default one, you can set the right URL in the *.env* file at root by changing the value of the **REACT_APP_API_URL** variable. *If the application is already launched, you shall stop it and re-launch it*.
+If you use a different API URL(back-end part) than the default one, you can set the right URL in the *.env* file at root by changing the value of the ```REACT_APP_API_URL``` variable. *If the application is already launched, you shall stop it and re-launch it*.
 
 ### USE WITHOUT BACKEND
 
-You can test the application without the back-end part, using a mocked file placed in the folder *"./src/assets/mockedData/data.js"* containing two default users. Access the *.env* file at root, and change the **REACT_APP_MOCKED_DATA** variable to *true*. *If the application is already launched, you shall stop it and re-launch it*.
+You can test the application without the back-end part, using a mocked file placed in the folder *"./src/assets/mockedData/data.js"* containing two default users. Access the *.env* file at root, and change the ```REACT_APP_MOCKED_DATA``` variable to *true*. *If the application is already launched, you shall stop it and re-launch it*.
 
 &nbsp;
 
