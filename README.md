@@ -8,7 +8,7 @@ Two repositories are needed to enable the project to run:
 
 &nbsp;
 ## 1. BACK-END:
-An alternative to the use of this back-end API is available, see below at [USE WITHOUT BACKEND](###-use-without-backend) in front-end section.
+An alternative to the use of this back-end API is available, see below at [USE WITHOUT BACKEND](#use-without-backend) in front-end section.
 
 The back-end project requires nodeJS installed and any package manager such as npm or yarn. Please refer to the README available on the repository for further informations.
 
