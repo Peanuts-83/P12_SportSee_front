@@ -42,6 +42,10 @@ SSH :
 * Then ```cd``` inside your local repository and install dependencies using : ```npm install```.
 * Launch the application with : ``` npm start ```.
 
+### Use the application
+
+You can change USER'S PROFILE by clicking on the logo. This is for demonstration purpose ONLY.
+
 ### URL/PORT
 
 The default URL used by the application is http://localhost:3005.
