@@ -3,6 +3,9 @@
 
 # P12: React & Recharts Dashboard / SportSee
 
+[![Visit website](./vignette.png)](./dashboard.png)
+[![Project's presentation SlideShow](./pdf.png)](./Slide_P7.pdf) - SlideShow
+
 SportSee is a startup dedicated to sport's coaching. The purpose of this project is to developp a brand new Dashboard's version of their application, where the user can check any important data about his sport's practice.
 
 This project has been developped with React and <a href="https://recharts.org/en-US/">Recharts librairie</a>.
