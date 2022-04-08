@@ -1,8 +1,7 @@
-[![forthebadge](https://forthebadge.com/images/badges/cc-0.svg)](https://forthebadge.com)
-[![forthebadge](./made-with-react-create-app.svg)](https://create-react-app.dev/)
+[![forthebadge](./made-with-create-react-app.svg)](https://create-react-app.dev/)
 [![forthebadge](./uses-recharts.svg)](https://recharts.org/en-US/)
 
-# SportSee - User's Dashboard
+# P12: React & Recharts Dashboard / SportSee
 
 SportSee is a startup dedicated to sport's coaching. The purpose of this project is to developp a brand new Dashboard's version of their application, where the user can check any important data about his sport's practice.
 
@@ -35,6 +34,7 @@ npm install
 ```
 
 * launch the back-end with either/or:
+
 ```bash
  npm start
  npm run dev
@@ -62,11 +62,13 @@ git clone git@github.com:Peanuts-83/P12_SportSee_front.git
 ```
 
 * Then access inside your local repository and install dependencies using :
+
 ```bash
 npm install
 ```
 
 * Launch the application with :
+
 ```bash
  npm start
  ```
