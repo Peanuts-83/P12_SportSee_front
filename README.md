@@ -3,7 +3,7 @@
 
 # P12: React & Recharts Dashboard / SportSee
 
-[![Visit website](./vignette.png)](./dashboard.png)
+[![Visit website](./vignette.png)](https://sportsee-peanuts83.herokuapp.com/)
 [![Project's presentation SlideShow](./pdf.png)](./Slide_P12.pdf) - SlideShow
 
 ## Project's presentation
