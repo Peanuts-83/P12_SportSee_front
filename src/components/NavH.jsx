@@ -22,10 +22,14 @@ function NavH({ currentUser }) {
 				title="Click to switch demo User"
 			/>
 			<nav className="nav-h">
-				<span className="nav-h_menu">Accueil</span>
-				<span className="nav-h_menu">Profil</span>
-				<span className="nav-h_menu">Réglages</span>
-				<span className="nav-h_menu">Communauté</span>
+				<span className="nav-h_menu"
+				onClick={() => setUserId(ids.filter((id) => id !== userId)[0])}>Accueil</span>
+				<span className="nav-h_menu"
+				onClick={() => setUserId(ids.filter((id) => id !== userId)[0])}>Profil</span>
+				<span className="nav-h_menu"
+				onClick={() => setUserId(ids.filter((id) => id !== userId)[0])}>Réglages</span>
+				<span className="nav-h_menu"
+				onClick={() => setUserId(ids.filter((id) => id !== userId)[0])}>Communauté</span>
 			</nav>
 		</div>
 	);

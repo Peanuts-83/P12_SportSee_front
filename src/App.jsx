@@ -20,7 +20,7 @@ function App() {
 		<div className="App">
 			<NavH currentUser={[userId, setUserId]} />
 			<div className="app-content">
-				<NavV />
+				<NavV currentUser={[userId, setUserId]} />
 				<Dashboard userId={userId} />
 			</div>
 		</div>

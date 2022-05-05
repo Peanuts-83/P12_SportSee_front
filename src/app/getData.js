@@ -34,6 +34,7 @@ async function getData(requestTarget, userId) {
         } else {
             console.log(`Data is taken from ${mockedEnv === "true" ? "MOCKED_DATA" : "BackEnd database with Axios"}.`)
             if (mockedEnv === 'true') {
+                console.log('MOCKED DATA true');
                 usersData = await new Promise((resolve) => resolve(mockedData[requestTarget]))
                 data = { data: await usersData.filter(user => user.id ? user.id === userId : user.userId === userId)[0] }
                 localStorage.setItem(`sportSee-${userId}-${requestTarget}`, JSON.stringify(data))
